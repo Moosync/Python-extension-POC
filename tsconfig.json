@@ -9,16 +9,20 @@
       "*": [
         "./src/types/*"
       ]
-    }
+    },
+    "typeRoots": [
+      "./node_modules",
+      "./node_modules/@moosync/moosync-types",
+      "./node_modules/@types",
+      "./src/types"
+    ],
+    "types": [
+      "tar"
+    ]
   },
-  "typeRoots": [
-    "./node_modules",
-    "./node_modules/@moosync/moosync-types",
-    "./node_modules/@types",
-    "./src/types"
-  ],
+
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
+    "src/**/*.tsx", "src/child.js",
   ],
 }

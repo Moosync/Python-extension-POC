@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "rootDir": "src",
+        "paths": {
+            "*": [
+                "./src/types/*"
+            ]
+        },
+        "typeRoots": [
+            "./node_modules/@types",
+        ],
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/child.js",
+    ],
+}

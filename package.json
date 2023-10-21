@@ -8,17 +8,42 @@
   "moosyncExtension": true,
   "displayName": "MyExtension",
   "scripts": {
-    "watch:build": "webpack --watch",
-    "webpack:build": "webpack --config webpack.config.js",
-    "build": "npm run webpack:build && mopack --path ."
+    "watch:build": "npm run setup && webpack --watch",
+    "webpack:build": "npm run setup && npm run pex && webpack --config webpack.config.js && npm run clean",
+    "build": "npm run webpack:build && mopack --path .",
+    "setup": "ts-node -P ./tsconfig.setup.json scripts/setup.ts",
+    "pex": "ts-node -P ./tsconfig.setup.json scripts/pack.ts",
+    "clean": "ts-node -P ./tsconfig.setup.json scripts/clean.ts"
   },
   "author": "Sahil Gupte",
   "devDependencies": {
     "@moosync/moosync-types": "https://github.com/Moosync/extension-api-types",
     "@moosync/packer": "^0.1.4",
     "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "node-ipc": "npm:@achrinza/node-ipc@10.1.9",
+    "@types/node-ipc": "^9.2.2",
+    "@types/tar": "^6.1.6",
+    "@types/uuid": "^9.0.6",
+    "command-exists": "^1.2.9",
+    "copy-webpack-plugin": "^11.0.0",
+    "tar": "^6.2.0",
+    "uuid": "^9.0.1"
+  },
+  "mopack": {
+    "exclude": [
+      "src/**",
+      "python-bin.pex",
+      "python-src/**",
+      "scripts/**",
+      "tsconfig.setup.json",
+      "tsconfig.json",
+      "dist/pipes/**"
+    ]
   }
 }

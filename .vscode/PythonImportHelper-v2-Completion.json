@@ -1,0 +1,212 @@
+[
+    {
+        "label": "start",
+        "importPath": "moosyncLib.lib",
+        "description": "moosyncLib.lib",
+        "isExtraImport": true,
+        "detail": "moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "event_handler",
+        "importPath": "moosyncLib.lib",
+        "description": "moosyncLib.lib",
+        "isExtraImport": true,
+        "detail": "moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "importPath": "moosyncLib.lib",
+        "description": "moosyncLib.lib",
+        "isExtraImport": true,
+        "detail": "moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "event_handler",
+        "importPath": "moosyncLib.lib",
+        "description": "moosyncLib.lib",
+        "isExtraImport": true,
+        "detail": "moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "distutils.core",
+        "description": "distutils.core",
+        "isExtraImport": true,
+        "detail": "distutils.core",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "distutils.core",
+        "description": "distutils.core",
+        "isExtraImport": true,
+        "detail": "distutils.core",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "on_volume_changed",
+        "kind": 2,
+        "importPath": "dist.python-src.main",
+        "description": "dist.python-src.main",
+        "peekOfCode": "def on_volume_changed(new_volume):\n    print('Volume changed to', new_volume, flush=True)\ndef on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
+        "detail": "dist.python-src.main",
+        "documentation": {}
+    },
+    {
+        "label": "on_song_changed",
+        "kind": 2,
+        "importPath": "dist.python-src.main",
+        "description": "dist.python-src.main",
+        "peekOfCode": "def on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
+        "detail": "dist.python-src.main",
+        "documentation": {}
+    },
+    {
+        "label": "ExtensionEventHandler",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "class ExtensionEventHandler():\n    def __init__(self) -> None:\n        self.callbacks = {}\n    def add_listener(self, event_name, callback):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append(callback)\n    async def emit_event(self, event_name, args):\n        if event_name in self.callbacks:\n            for callback in self.callbacks[event_name]:",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "sock_recvmsg",
+        "kind": 2,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "def sock_recvmsg(loop, sock, bufsize, ancbufsize=0):\n    self = loop\n    if sock.gettimeout() != 0: raise ValueError('the socket must be non-blocking')\n    fut = asyncio.futures.Future(loop=self)\n    self._sock_recvmsg(fut, False, sock, bufsize, ancbufsize)\n    return fut\nasyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg = _sock_recvmsg\nasyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nclass ExtensionEventHandler():\n    def __init__(self) -> None:",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "kind": 2,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "def start():\n    loop.create_task(read_pipe())        \n    loop.run_forever()",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "__dirname",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "__dirname = sys.argv[1]\npipePath = sys.argv[2]\nprint(pipePath, flush=True)\n# https://stackoverflow.com/questions/38235997/how-to-implement-recvmsg-with-asyncio\ndef _sock_recvmsg(loop, fut, registered, sock, bufsize, ancbufsize):\n    self = loop\n    fd = sock.fileno()\n    if registered: self.remove_reader(fd)\n    if fut.cancelled(): return\n    try: ",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "pipePath",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "pipePath = sys.argv[2]\nprint(pipePath, flush=True)\n# https://stackoverflow.com/questions/38235997/how-to-implement-recvmsg-with-asyncio\ndef _sock_recvmsg(loop, fut, registered, sock, bufsize, ancbufsize):\n    self = loop\n    fd = sock.fileno()\n    if registered: self.remove_reader(fd)\n    if fut.cancelled(): return\n    try: \n        data = sock.recvmsg(bufsize, ancbufsize)",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "asyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg = _sock_recvmsg\nasyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nclass ExtensionEventHandler():\n    def __init__(self) -> None:\n        self.callbacks = {}\n    def add_listener(self, event_name, callback):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append(callback)\n    async def emit_event(self, event_name, args):",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "asyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nclass ExtensionEventHandler():\n    def __init__(self) -> None:\n        self.callbacks = {}\n    def add_listener(self, event_name, callback):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append(callback)\n    async def emit_event(self, event_name, args):\n        if event_name in self.callbacks:",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "event_handler",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "event_handler = ExtensionEventHandler()\nclient = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)\nclient.connect(pipePath)\nclient.setblocking(0)\nloop = asyncio.get_event_loop()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        if not (data_tmp[0].endswith(b\"\\x0c\")):",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)\nclient.connect(pipePath)\nclient.setblocking(0)\nloop = asyncio.get_event_loop()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        if not (data_tmp[0].endswith(b\"\\x0c\")):\n            half_read_data += data_tmp[0]",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "loop",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "loop = asyncio.get_event_loop()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        if not (data_tmp[0].endswith(b\"\\x0c\")):\n            half_read_data += data_tmp[0]\n            continue\n        elif len(half_read_data) != 0:\n            half_read_data += data_tmp[0]",
+        "detail": "python-src.moosyncLib.lib",
+        "documentation": {}
+    },
+    {
+        "label": "on_volume_changed",
+        "kind": 2,
+        "importPath": "python-src.main",
+        "description": "python-src.main",
+        "peekOfCode": "def on_volume_changed(new_volume):\n    print('Volume changed to', new_volume, flush=True)\ndef on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
+        "detail": "python-src.main",
+        "documentation": {}
+    },
+    {
+        "label": "on_song_changed",
+        "kind": 2,
+        "importPath": "python-src.main",
+        "description": "python-src.main",
+        "peekOfCode": "def on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
+        "detail": "python-src.main",
+        "documentation": {}
+    }
+]

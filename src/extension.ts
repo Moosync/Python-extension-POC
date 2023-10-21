@@ -1,119 +1,117 @@
-import { MoosyncExtensionTemplate, Playlist, PlayerState, Song, SongQueue, Artists } from '@moosync/moosync-types'
-import { resolve } from 'path'
+import { ExtraExtensionEventTypes, MoosyncExtensionTemplate } from '@moosync/moosync-types'
+import { access, chmod, mkdir, rm } from 'fs/promises'
 
-const sampleSong: Song = {
-  _id: 'Another random ID',
-  title: 'Example song',
-  duration: 0,
-  date_added: Date.now(),
-  type: 'URL',
-  playbackUrl:
-    'https://file-examples.com/storage/fe8788b10b62489539afcfd/2017/11/file_example_MP3_5MG.mp3' /* If the URL is directly playable, duration is fetched at runtime */
+import ipc from 'node-ipc'
+import path from 'path'
+import { spawn } from 'child_process'
+import { v4 } from 'uuid'
+
+type Message = { id: string; event: keyof MoosyncExtensionTemplate | ExtraExtensionEventTypes; args: unknown[] }
+type MessageType = 'EVENT' | 'REPLY'
+const pipePath = path.join(__dirname, 'pipes', 'ipc.sock')
+
+ipc.config.logger = () => {}
+
+function generateHugeData() {
+  const data = {}
+  for (let i = 0; i <= 65535; i++) {
+    data[i] = v4()
+  }
+
+  return data
 }
 
-const samplePlaylist: Playlist = {
-  playlist_id: 'Some random generated ID',
-  playlist_name: 'Hello this is a playlist',
-  playlist_song_count: 69,
-  playlist_coverPath: 'https://avatars.githubusercontent.com/u/91860733?s=200&v=4',
-  icon: resolve(__dirname, '../assets/icon.svg')
-}
-
-const sampleArtist: Artists = {
-  artist_id: 'random generated ID',
-  artist_name: 'My Artist',
-  artist_coverPath: 'https://avatars.githubusercontent.com/u/91860733?s=200&v=4'
-}
 export class MyExtension implements MoosyncExtensionTemplate {
-  private interval: ReturnType<typeof setInterval> | undefined
+  private socket?: unknown
+  private socketWriteQueue: [MessageType, Message][] = []
 
-  async onStarted() {
-    console.info('Extension started')
-    this.registerEvents()
-
-    this.interval = setInterval(() => {
-      this.setProgressbarWidth()
-    }, 1000)
-
-    api.setContextMenuItem({
-      type: 'SONGS',
-      label: 'Test context menu item',
-      handler: (songs) => {
-        console.info('Clicked context menu item with data', songs)
-      }
-    })
-  }
-
-  private async onSongChanged(song: Song) {
-    console.debug(song)
-  }
-
-  private async onPlayerStateChanged(state: PlayerState) {
-    console.debug(state)
-  }
-
-  private async onSongQueueChanged(queue: SongQueue) {
-    console.debug(queue.index)
-  }
-
-  private async onVolumeChanged(volume: number) {
-    console.debug(volume)
-  }
-
-  async onStopped() {
-    // Cleanup intervals, timeout, etc in onStopped
-    if (this.interval) {
-      clearInterval(this.interval)
+  private async createPipes() {
+    try {
+      await access(path.dirname(pipePath))
+      await rm(pipePath, { force: true })
+    } catch {
+      await mkdir(path.dirname(pipePath))
     }
 
-    console.info('Extension stopped')
+    ipc.serve(pipePath, () => {
+      ipc.server.on('connect', (socket) => {
+        console.log('connected')
+        this.socket = socket
+        this.emptyWriteQueue()
+      })
+
+      ipc.server.on('data', (buf) => {
+        console.log('got data', buf.toString())
+      })
+    })
+
+    ipc.server.start()
   }
 
-  private async onPreferenceChanged({ key, value }: { key: string; value: any }): Promise<void> {
-    console.info('Preferences changed at', key, 'with value', value)
+  private emptyWriteQueue() {
+    for (const m of this.socketWriteQueue) {
+      this.writeToPython(m[0], m[1])
+    }
+
+    this.socketWriteQueue = []
   }
 
-  async setProgressbarWidth() {
-    await api.setPreferences('test_progressBar', Math.random() * 100 + 1)
+  private writeToPython(type: MessageType, message: Message) {
+    if (this.socket) {
+      ipc.server.emit(this.socket, type, JSON.stringify(message))
+    } else {
+      this.socketWriteQueue.push([type, message])
+    }
   }
 
-  private async registerEvents() {
-    api.on('requestedPlaylists', async () => {
-      return {
-        playlists: [samplePlaylist]
-      }
+  async onStarted() {
+    const pythonBin = path.join(__dirname, 'python-bin.pex')
+    await chmod(pythonBin, 0o755)
+
+    await this.createPipes()
+
+    this.writeToPython('EVENT', { event: 'onStarted', args: [generateHugeData()], id: v4() })
+
+    const child = spawn(pythonBin, [__dirname, pipePath], {
+      stdio: 'pipe'
     })
 
-    api.on('requestedPlaylistSongs', async () => {
-      return {
-        songs: [sampleSong]
-      }
+    child.on('error', function (err) {
+      console.error('Failed to start child.', err)
+    })
+    child.on('close', function (code) {
+      console.error('Child process exited with code ' + code)
     })
 
-    api.on('requestedLyrics', async (song) => {
-      return 'Lorem Ipsum'
-    })
+    child.stdout.on('data', (buf: Buffer) => console.log('from python:', buf.toString()))
+    child.stderr.on('data', (buf: Buffer) => console.error('from python:', buf.toString()))
 
-    api.on('requestedSearchResult', async (term) => {
-      return {
-        songs: [sampleSong],
-        playlists: [samplePlaylist],
-        artists: [sampleArtist],
-        albums: []
-      }
-    })
+    // this.registerEvents()
+  }
 
-    api.on('playerStateChanged', this.onPlayerStateChanged.bind(this))
-    api.on('preferenceChanged', this.onPreferenceChanged.bind(this))
-    api.on('volumeChanged', this.onVolumeChanged.bind(this))
-    api.on('songChanged', this.onSongChanged.bind(this))
-    api.on('songQueueChanged', this.onSongQueueChanged.bind(this))
-    api.on('seeked', async (time) => console.debug('Player seeked to', time))
+  private registerEvents() {
+    const voidEvents: ExtraExtensionEventTypes[] = [
+      'oauthCallback',
+      'songQueueChanged',
+      'seeked',
+      'volumeChanged',
+      'playerStateChanged',
+      'songChanged',
+      'preferenceChanged',
+      'songAdded',
+      'songRemoved',
+      'playlistAdded',
+      'playlistRemoved',
+      'songQueueChanged',
+      'preferenceChanged'
+    ]
 
-    await api.registerOAuth('exampleOAuth') /* Callback paths are case-insensitive */
-
-    api.on('oauthCallback', async (url) => {
-      console.info('OAuth callback triggered', url)
-    })
+    for (const e of voidEvents) {
+      api.on(e as any, async (...args: unknown[]) =>
+        this.writeToPython('EVENT', { event: e, args, id: v4() })
+      )
+    }
   }
 }
+
+new MyExtension().onStarted()
