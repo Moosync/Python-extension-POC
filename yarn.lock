@@ -101,6 +101,13 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.4.tgz#0b92dcc0cc1c81f6f306a381f28e31b1a56536e9"
   integrity sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==
 
+"@types/buffer-split@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/buffer-split/-/buffer-split-1.0.1.tgz#9f76d7eb319859851c2b56fb3169f3672ed139d7"
+  integrity sha512-vG/I19Midlro06+GxlvnRZuvRr9fPR9xvSCRQcTL9ZWAIdofp8HxnxuMHcjeqDyZPAYpMjMzU8ONQxmoondlbw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/eslint-scope@^3.7.3":
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.3.tgz#125b88504b61e3c8bc6f870882003253005c3224"
@@ -401,6 +408,18 @@ buffer-from@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
+
+buffer-indexof@~0.0.0:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/buffer-indexof/-/buffer-indexof-0.0.2.tgz#ed0f36b7ae166a66a7cd174c0467ae8dedf008f5"
+  integrity sha512-mDMCCNLq1b+ICJ5VzS/D/Ca3bD9/3GxgCp+E+jqLwDTXHxRwQkQDfUOt4pJvmE53+YxfNNtNrxf3k/drNqJKJA==
+
+buffer-split@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/buffer-split/-/buffer-split-1.0.0.tgz#4427dbff53731b61d7a71aba47f503396613784a"
+  integrity sha512-orCFtxr4KDKi+5AYFDINPvnXtApMCy9moEklNYoGGfXebcFaeKlxK9Wbn6E7HGa3O5hrqYP2ixLXJzxV6RxGXA==
+  dependencies:
+    buffer-indexof "~0.0.0"
 
 caniuse-lite@^1.0.30001332:
   version "1.0.30001344"

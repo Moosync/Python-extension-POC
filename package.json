@@ -26,12 +26,14 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "node-ipc": "npm:@achrinza/node-ipc@10.1.9",
+    "@types/buffer-split": "^1.0.1",
     "@types/node-ipc": "^9.2.2",
     "@types/tar": "^6.1.6",
     "@types/uuid": "^9.0.6",
+    "buffer-split": "^1.0.0",
     "command-exists": "^1.2.9",
     "copy-webpack-plugin": "^11.0.0",
+    "node-ipc": "npm:@achrinza/node-ipc@10.1.9",
     "tar": "^6.2.0",
     "uuid": "^9.0.1"
   },
