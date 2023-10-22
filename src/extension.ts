@@ -1,4 +1,4 @@
-import { ExtraExtensionEventTypes, MoosyncExtensionTemplate } from '@moosync/moosync-types'
+import { ExtraExtensionEventTypes, MoosyncExtensionTemplate, extensionAPI } from '@moosync/moosync-types'
 import { Socket, createServer } from 'net'
 import { access, chmod, mkdir, rm } from 'fs/promises'
 
@@ -8,7 +8,7 @@ import path from 'path'
 import { spawn } from 'child_process'
 import { v4 } from 'uuid'
 
-type Message = { id: string; event: keyof MoosyncExtensionTemplate | ExtraExtensionEventTypes; args: unknown[] }
+type Message = { id: string; event: keyof MoosyncExtensionTemplate | ExtraExtensionEventTypes | keyof extensionAPI; args: unknown[] }
 type MessageType = 'EVENT' | 'REPLY' | "REQUEST"
 const pipePath = path.join(__dirname, 'pipes', 'ipc.sock')
 
@@ -42,8 +42,54 @@ export class MyExtension implements MoosyncExtensionTemplate {
     if (type === "REQUEST") {
       if ((data.event as string) === "registerListener") {
         this.registerEvent(data.args?.[0] as ExtraExtensionEventTypes)
+        return
       }
-      return
+
+      this.handlePythonRequests(data.event as keyof extensionAPI, data.args).then((result) => {
+        this.send('REPLY', {
+          id: data.id,
+          event: data.event,
+          args: result
+        })
+      })
+    }
+  }
+
+  private async handlePythonRequests(method: keyof extensionAPI, args: unknown[]) {
+    const validMethods: (keyof extensionAPI)[] = [
+      'addPlaylist',
+      'addSongs',
+      'addSongsToPlaylist',
+      'changeAccountAuthStatus',
+      'closeLoginModal',
+      'getContextMenuItems',
+      'getCurrentSong',
+      'getEntity',
+      'getInstalledExtensions',
+      'getPlayerState',
+      'getPreferences',
+      'getQueue',
+      'getSecure',
+      'getSongs',
+      'getTime',
+      'getVolume',
+      'openExternalURL',
+      'openLoginModal',
+      'registerAccount',
+      'registerOAuth',
+      'removeContextMenuItem',
+      'removeSong',
+      'setAlbumEditableInfo',
+      'setArtistEditableInfo',
+      'setContextMenuItem',
+      'setPreferences',
+      'setSecure',
+      'showToast'
+    ]
+
+    if (validMethods.includes(method)) {
+      const result = await (api[method] as Function)(...args)
+      return result
     }
   }
 

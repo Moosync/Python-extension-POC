@@ -3,6 +3,7 @@ import socket
 import json
 import asyncio
 import uuid
+import inspect
 
 __dirname = sys.argv[1]
 pipePath = sys.argv[2]
@@ -49,45 +50,79 @@ def generate_huge_data():
         data[i] = str(uuid.uuid4())
     return data
 
+def generate_event_request(event_name, args):
+    return {
+        "type": "REQUEST",
+        "data": {
+            "id": str(uuid.uuid4()),
+            "event": event_name,
+            "args": args
+        }
+    }
+    
+def generate_event_reply(request, data):
+    return {
+        "type": "REPLY",
+        "data": {
+            "id": request["id"],
+            "event": request["event"],
+            "args": data
+        }
+    }
+    
+future_map = {}
+
+class ExtensionAPI():        
+    async def send(self, method, args):
+        future = loop.create_future()
+        data = generate_event_request(method, args)
+        
+        future_map[data["data"]["id"]] = future
+        await loop.sock_sendall(client, json.dumps(data).encode() + b'\x0c')
+        res = await future
+        return res
+        
+    async def getCurrentSong(self):
+        res = await self.send("getCurrentSong", [])
+        return res
+        
+    async def resolve_future(self, request):
+        id = request["id"]
+        if id in future_map:
+            future = future_map[id]
+            del future_map[id]
+            
+            result = None
+            args = request["args"]
+            if args is not None and len(request["args"]) > 0:
+                result = request["args"][0]
+            future.set_result(result)
+        
+api = ExtensionAPI()
+
 class ExtensionEventHandler():
     def __init__(self) -> None:
         self.callbacks = {}
         
-    def generate_event_request(self, event_name, args):
-        return {
-            "type": "REQUEST",
-            "data": {
-                "id": str(uuid.uuid4()),
-                "event": event_name,
-                "args": args
-            }
-        }
         
     async def add_listener(self, event_name, callback):
         if event_name not in self.callbacks:
             self.callbacks[event_name] = []
         self.callbacks[event_name].append(callback)
         
-        data = self.generate_event_request("registerListener", [event_name])
+        data = generate_event_request("registerListener", [event_name])
         await loop.sock_sendall(client, json.dumps(data).encode() + b'\x0c')
-        
-    def generate_event_reply(self, request, data):
-        return {
-            "type": "REPLY",
-            "data": {
-                "id": request["id"],
-                "event": request["event"],
-                "args": data
-            }
-        }
     
     async def emit_event(self, request):
         event_name = request["event"]
         if event_name in self.callbacks:
             for callback in self.callbacks[event_name]:
                 callback_res = callback(*request["args"])
+                if inspect.iscoroutine(callback_res):
+                    callback_res = await callback_res
+
                 if callback_res is not None:
-                    data = self.generate_event_reply(request, [callback_res])
+                    data = generate_event_reply(request, [callback_res])
                     await loop.sock_sendall(client, json.dumps(data).encode() + b'\x0c')
                 
 event_handler = ExtensionEventHandler()
@@ -116,11 +151,14 @@ async def read_pipe():
             parsed = json.loads(half_read_data.strip())
                         
             half_read_data = b""
+            data = parsed["data"]
+            if isinstance(data, str):
+                data = json.loads(data)
+            
+            if parsed["type"] == "REPLY":
+                loop.create_task(api.resolve_future(data))
+                
             if parsed["type"] == "EVENT":
-                data = parsed["data"]
-                if isinstance(data, str):
-                    data = json.loads(data)
-                    
                 loop.create_task(event_handler.emit_event(data))
 
 async def start():
