@@ -3,3 +3,4 @@ dist/
 *.msox
 *.pex
 .venv/
+setup.py
