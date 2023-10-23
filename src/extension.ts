@@ -1,4 +1,4 @@
-import { ExtraExtensionEventTypes, MoosyncExtensionTemplate, extensionAPI } from '@moosync/moosync-types'
+import { ExtensionContextMenuItem, ExtraExtensionEventTypes, MoosyncExtensionTemplate, extensionAPI } from '@moosync/moosync-types'
 import { Socket, createServer } from 'net'
 import { access, chmod, mkdir, rm } from 'fs/promises'
 
@@ -9,7 +9,7 @@ import { spawn } from 'child_process'
 import { v4 } from 'uuid'
 
 type Message = { id: string; event: keyof MoosyncExtensionTemplate | ExtraExtensionEventTypes | keyof extensionAPI; args: unknown[] }
-type MessageType = 'EVENT' | 'REPLY' | "REQUEST"
+type MessageType = 'EVENT' | 'REPLY' | "REQUEST" | 'CALLBACK'
 const pipePath = path.join(__dirname, 'pipes', 'ipc.sock')
 
 export class MyExtension implements MoosyncExtensionTemplate {
@@ -45,16 +45,16 @@ export class MyExtension implements MoosyncExtensionTemplate {
         return
       }
 
-      this.handlePythonRequests(data.event as keyof extensionAPI, data.args).then((result) => {
+      this.handlePythonRequests(data.event as keyof extensionAPI, data.args).then((...args: unknown[]) => {
         this.send('REPLY', {
           id: data.id,
           event: data.event,
-          args: result
+          args: args
         })
       })
     }
   }
-
+  
   private async handlePythonRequests(method: keyof extensionAPI, args: unknown[]) {
     const validMethods: (keyof extensionAPI)[] = [
       'addPlaylist',
@@ -86,6 +86,37 @@ export class MyExtension implements MoosyncExtensionTemplate {
       'setSecure',
       'showToast'
     ]
+
+    if (method === 'setContextMenuItem') {
+      for (const a of (args as ExtensionContextMenuItem<'GENERAL_SONGS'>[])) {
+        const id = a.handler as unknown as string
+
+        a.handler = (...args: unknown[]) => {
+          this.send('CALLBACK', {
+            id,
+            event: 'setContextMenuItem',
+            args
+          })
+        }
+      }
+    }
+
+    if (method.startsWith('player')) {
+      const innerMethod = method.slice(7) as keyof extensionAPI['player']
+
+      const validInnerMethods: (keyof extensionAPI['player'])[] = [
+        'nextSong',
+        'pause',
+        'play',
+        'prevSong',,
+        'stop'
+      ]
+
+      if (validInnerMethods.includes(innerMethod)) {
+        const result = await ((api.player[innerMethod] as Function)(...args))
+        return result
+      }      
+    }
 
     if (validMethods.includes(method)) {
       const result = await (api[method] as Function)(...args)
@@ -188,7 +219,6 @@ export class MyExtension implements MoosyncExtensionTemplate {
       'playlistAdded',
       'playlistRemoved',
       'songQueueChanged',
-      'preferenceChanged'
     ]
 
     const replyEvents: ExtraExtensionEventTypes[] = [
