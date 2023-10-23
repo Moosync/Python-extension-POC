@@ -101,6 +101,27 @@ export class MyExtension implements MoosyncExtensionTemplate {
       }
     }
 
+    if (method === 'registerAccount') {
+      const signInId = args[3] as string
+      const signOutId = args[4] as string
+
+      ;(args as Parameters<extensionAPI['registerAccount']>)[3] = (...args: unknown[]) => {
+        this.send('CALLBACK', {
+          id: signInId,
+          event: 'registerAccount',
+          args
+        })
+      }
+
+      ;(args as Parameters<extensionAPI['registerAccount']>)[4] = (...args: unknown[]) => {
+        this.send('CALLBACK', {
+          id: signOutId,
+          event: 'registerAccount',
+          args
+        })
+      }
+    }
+
     if (method.startsWith('player')) {
       const innerMethod = method.slice(7) as keyof extensionAPI['player']
 

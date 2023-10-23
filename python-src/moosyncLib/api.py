@@ -4,7 +4,7 @@ import json
 from moosyncLib.utils import generate_event_request, EnhancedJSONEncoder, client
 from moosyncLib.data import Album, Artists, ContextMenuItem, EntitySearchOptions, Genre, Playlist, Song
 from moosyncLib.data import SongSearchOptions
-from typing import List
+from typing import Callable, List
 import uuid
 
 future_map = {}
@@ -134,6 +134,15 @@ class ExtensionAPI:
 
     async def get_installed_extensions(self) -> list[str]:
         return await self.send("getInstalledExtensions", [])
+    
+    async def register_account(self, name: str, bg_color: str, icon: str, sign_in_callback: Callable[[], None], sign_out_callback: Callable[[], None]) -> list[str]:
+        sign_in_callback_id = str(uuid.uuid4())
+        sign_out_callback_id =  str(uuid.uuid4())
+        
+        callback_map[sign_in_callback_id] = sign_in_callback
+        callback_map[sign_out_callback_id] = sign_out_callback
+        
+        return await self.send("registerAccount", [name, bg_color, icon, sign_in_callback_id, sign_out_callback_id])
 
     async def _resolve_future(self, request):
         id = request["id"]
