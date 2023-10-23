@@ -7,7 +7,6 @@ from moosyncLib.data import Song
 from moosyncLib.api import api
 from moosyncLib.data import ContextMenuItem
 
-
 async def on_started():
     await api.set_context_menu_item([ContextMenuItem(type="SONGS", label="Hello", handler=context_menu_handler)])
     
@@ -34,10 +33,12 @@ def requested_playlists(invalidateCache):
 
 
 async def main():
-    await event_handler.add_listener("volumeChanged", on_volume_changed)
-    await event_handler.add_listener("songChanged", on_song_changed)
-    await event_handler.add_listener("requestedPlaylists", requested_playlists)
-    await event_handler.add_listener("onStarted", on_started)
+    # await event_handler.add_listener("volumeChanged", on_volume_changed)
+    # await event_handler.add_listener("songChanged", on_song_changed)
+    # await event_handler.add_listener("requestedPlaylists", requested_playlists)
+    # await event_handler.add_listener("onStarted", on_started)
+    
+    await event_handler.on_song_added(on_song_changed)
 
     await start()
 

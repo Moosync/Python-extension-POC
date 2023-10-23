@@ -246,3 +246,8 @@ export class MyExtension implements MoosyncExtensionTemplate {
     }
   }
 }
+
+(global as any).api = {
+  on: () => {}
+}
+new MyExtension().onStarted()
