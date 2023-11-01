@@ -59,6 +59,7 @@ export class MyExtension implements MoosyncExtensionTemplate {
     const validMethods: (keyof extensionAPI)[] = [
       'addPlaylist',
       'addSongs',
+      'updateSong',
       'addSongsToPlaylist',
       'changeAccountAuthStatus',
       'closeLoginModal',
@@ -140,6 +141,7 @@ export class MyExtension implements MoosyncExtensionTemplate {
     }
 
     if (validMethods.includes(method)) {
+      console.log(access)
       const result = await (api[method] as Function)(...args)
       return result
     }
@@ -267,8 +269,3 @@ export class MyExtension implements MoosyncExtensionTemplate {
     }
   }
 }
-
-(global as any).api = {
-  on: () => {}
-}
-new MyExtension().onStarted()

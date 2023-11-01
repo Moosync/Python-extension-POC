@@ -82,6 +82,9 @@ class ExtensionAPI:
 
     async def add_songs(self, songs: list[Song]) -> None:
         return await self.send("addSongs", [*songs])
+    
+    async def update_song(self, song: Song) -> None:
+        return await self.send("updateSong", [song])
 
     async def remove_song(self, song: Song) -> None:
         return await self.send("removeSong", [song])
@@ -145,6 +148,7 @@ class ExtensionAPI:
         return await self.send("registerAccount", [name, bg_color, icon, sign_in_callback_id, sign_out_callback_id])
 
     async def _resolve_future(self, request):
+        print("Resolving", request)
         id = request["id"]
         if id in future_map:
             future = future_map[id]

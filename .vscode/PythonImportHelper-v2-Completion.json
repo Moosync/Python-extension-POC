@@ -1,5 +1,14 @@
 [
     {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
         "label": "start",
         "importPath": "moosyncLib.lib",
         "description": "moosyncLib.lib",
@@ -32,6 +41,295 @@
         "documentation": {}
     },
     {
+        "label": "Song",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "ContextMenuItem",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Album",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Artists",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "ContextMenuItem",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "EntitySearchOptions",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Genre",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Playlist",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Song",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongSearchOptions",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Playlist",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongQueue",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Song",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Album",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Artists",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "ForwardRequest",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "PlaylistReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "RecommendationsReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "CustomDataReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "PlaybackDetailsReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "PlaylistAndSongsReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongsWithPageTokenReturnType",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Song",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "ContextMenuItem",
+        "importPath": "moosyncLib.data",
+        "description": "moosyncLib.data",
+        "isExtraImport": true,
+        "detail": "moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "importPath": "moosyncLib.api",
+        "description": "moosyncLib.api",
+        "isExtraImport": true,
+        "detail": "moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "importPath": "moosyncLib.api",
+        "description": "moosyncLib.api",
+        "isExtraImport": true,
+        "detail": "moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "importPath": "moosyncLib.api",
+        "description": "moosyncLib.api",
+        "isExtraImport": true,
+        "detail": "moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "parse_qs",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "parse_qs",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "YoutubeDL",
+        "importPath": "yt_dlp",
+        "description": "yt_dlp",
+        "isExtraImport": true,
+        "detail": "yt_dlp",
+        "documentation": {}
+    },
+    {
+        "label": "YoutubeDL",
+        "importPath": "yt_dlp",
+        "description": "yt_dlp",
+        "isExtraImport": true,
+        "detail": "yt_dlp",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "setup",
         "importPath": "distutils.core",
         "description": "distutils.core",
@@ -48,21 +346,12 @@
         "documentation": {}
     },
     {
-        "label": "sys",
+        "label": "inspect",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "socket",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "socket",
-        "description": "socket",
-        "detail": "socket",
+        "importPath": "inspect",
+        "description": "inspect",
+        "detail": "inspect",
         "documentation": {}
     },
     {
@@ -75,30 +364,453 @@
         "documentation": {}
     },
     {
-        "label": "asyncio",
+        "label": "generate_event_request",
+        "importPath": "moosyncLib.utils",
+        "description": "moosyncLib.utils",
+        "isExtraImport": true,
+        "detail": "moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "EnhancedJSONEncoder",
+        "importPath": "moosyncLib.utils",
+        "description": "moosyncLib.utils",
+        "isExtraImport": true,
+        "detail": "moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "importPath": "moosyncLib.utils",
+        "description": "moosyncLib.utils",
+        "isExtraImport": true,
+        "detail": "moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "EnhancedJSONEncoder",
+        "importPath": "moosyncLib.utils",
+        "description": "moosyncLib.utils",
+        "isExtraImport": true,
+        "detail": "moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_event_request",
+        "importPath": "moosyncLib.utils",
+        "description": "moosyncLib.utils",
+        "isExtraImport": true,
+        "detail": "moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "importPath": "moosyncLib.utils",
+        "description": "moosyncLib.utils",
+        "isExtraImport": true,
+        "detail": "moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "asyncio",
-        "description": "asyncio",
-        "detail": "asyncio",
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
         "documentation": {}
     },
     {
-        "label": "on_volume_changed",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "is_dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "video_id",
         "kind": 2,
         "importPath": "dist.python-src.main",
         "description": "dist.python-src.main",
-        "peekOfCode": "def on_volume_changed(new_volume):\n    print('Volume changed to', new_volume, flush=True)\ndef on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
+        "peekOfCode": "def video_id(value):\n    query = urlparse(value)\n    if query.hostname == 'youtu.be':\n        return query.path[1:]\n    if query.hostname in ('www.youtube.com', 'youtube.com'):\n        if query.path == '/watch':\n            p = parse_qs(query.query)\n            return p['v'][0]\n        if query.path[:7] == '/embed/':\n            return query.path.split('/')[2]",
         "detail": "dist.python-src.main",
         "documentation": {}
     },
     {
-        "label": "on_song_changed",
-        "kind": 2,
-        "importPath": "dist.python-src.main",
-        "description": "dist.python-src.main",
-        "peekOfCode": "def on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
-        "detail": "dist.python-src.main",
+        "label": "ExtensionAPI",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.api",
+        "description": "python-src.moosyncLib.api",
+        "peekOfCode": "class ExtensionAPI:\n    async def send(self, method, args):\n        future = loop.create_future()\n        data = generate_event_request(method, args)\n        future_map[data[\"data\"][\"id\"]] = future\n        await loop.sock_sendall(\n            client, json.dumps(data, cls=EnhancedJSONEncoder).encode() + b\"\\x0c\"\n        )\n        res = await future\n        return res",
+        "detail": "python-src.moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "future_map",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.api",
+        "description": "python-src.moosyncLib.api",
+        "peekOfCode": "future_map = {}\nloop = asyncio.get_event_loop()\ncallback_map = {}\nclass ExtensionAPI:\n    async def send(self, method, args):\n        future = loop.create_future()\n        data = generate_event_request(method, args)\n        future_map[data[\"data\"][\"id\"]] = future\n        await loop.sock_sendall(\n            client, json.dumps(data, cls=EnhancedJSONEncoder).encode() + b\"\\x0c\"",
+        "detail": "python-src.moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "loop",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.api",
+        "description": "python-src.moosyncLib.api",
+        "peekOfCode": "loop = asyncio.get_event_loop()\ncallback_map = {}\nclass ExtensionAPI:\n    async def send(self, method, args):\n        future = loop.create_future()\n        data = generate_event_request(method, args)\n        future_map[data[\"data\"][\"id\"]] = future\n        await loop.sock_sendall(\n            client, json.dumps(data, cls=EnhancedJSONEncoder).encode() + b\"\\x0c\"\n        )",
+        "detail": "python-src.moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "callback_map",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.api",
+        "description": "python-src.moosyncLib.api",
+        "peekOfCode": "callback_map = {}\nclass ExtensionAPI:\n    async def send(self, method, args):\n        future = loop.create_future()\n        data = generate_event_request(method, args)\n        future_map[data[\"data\"][\"id\"]] = future\n        await loop.sock_sendall(\n            client, json.dumps(data, cls=EnhancedJSONEncoder).encode() + b\"\\x0c\"\n        )\n        res = await future",
+        "detail": "python-src.moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.api",
+        "description": "python-src.moosyncLib.api",
+        "peekOfCode": "api = ExtensionAPI()",
+        "detail": "python-src.moosyncLib.api",
+        "documentation": {}
+    },
+    {
+        "label": "Genre",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class Genre:\n    genre_id: str\n    genre_name: str\n    genre_song_count: Optional[int] = None\n@dataclass\nclass SearchableGenre:\n    genre_id: Optional[str] = None\n    genre_name: Optional[str] = None\n    genre_song_count: Optional[int] = None\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchableGenre",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SearchableGenre:\n    genre_id: Optional[str] = None\n    genre_name: Optional[str] = None\n    genre_song_count: Optional[int] = None\n@dataclass\nclass Album:\n    album_id: str\n    album_name: str\n    album_coverPath_high: Optional[str] = None\n    album_coverPath_low: Optional[str] = None",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Album",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class Album:\n    album_id: str\n    album_name: str\n    album_coverPath_high: Optional[str] = None\n    album_coverPath_low: Optional[str] = None\n    album_song_count: Optional[int] = None\n    album_artist: Optional[str] = None\n    album_extra_info: Optional[dict] = None\n    year: Optional[int] = None\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchableAlbum",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SearchableAlbum:\n    album_id: Optional[str] = None\n    album_name: Optional[str] = None\n    album_coverPath_high: Optional[str] = None\n    album_coverPath_low: Optional[str] = None\n    album_song_count: Optional[int] = None\n    album_artist: Optional[str] = None\n    album_extra_info: Optional[dict] = None\n    year: Optional[int] = None\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Artists",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class Artists:\n    artist_id: str\n    artist_name: str\n    artist_mbid: Optional[str] = None\n    artist_coverPath: Optional[str] = None\n    artist_song_count: Optional[int] = None\n    artist_extra_info: Optional[dict] = None\n@dataclass\nclass SearchableArtists:\n    artist_id: Optional[str] = None",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchableArtists",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SearchableArtists:\n    artist_id: Optional[str] = None\n    artist_name: Optional[str] = None\n    artist_mbid: Optional[str] = None\n    artist_coverPath: Optional[str] = None\n    artist_song_count: Optional[int] = None\n    artist_extra_info: Optional[dict] = None\n@dataclass\nclass Playlist:\n    playlist_id: str",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Playlist",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class Playlist:\n    playlist_id: str\n    playlist_name: str\n    playlist_desc: Optional[str] = None\n    playlist_coverPath: Optional[str] = None\n    playlist_path: Optional[str] = None\n    icon: Optional[str] = None\n    extension: Optional[str] = None\n@dataclass\nclass SearchablePlaylist:",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchablePlaylist",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SearchablePlaylist:\n    playlist_id: Optional[str] = None\n    playlist_name: Optional[str] = None\n    playlist_desc: Optional[str] = None\n    playlist_coverPath: Optional[str] = None\n    playlist_path: Optional[str] = None\n    icon: Optional[str] = None\n    extension: Optional[str] = None\n@dataclass\nclass Song:",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "Song",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class Song:\n    _id: str\n    title: str\n    date_added: int\n    type: Literal[\"LOCAL\", \"YOUTUBE\", \"SPOTIFY\", \"URL\", \"DASH\", \"HLS\"]\n    duration: float\n    path: Optional[str] = None\n    size: Optional[int] = None\n    song_coverPath_low: Optional[str] = None\n    song_coverPath_high: Optional[str] = None",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchableSong",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SearchableSong:\n    _id: Optional[str] = None\n    title: Optional[str] = None\n    type: Optional[Literal[\"LOCAL\", \"YOUTUBE\", \"SPOTIFY\", \"URL\", \"DASH\", \"HLS\"]] = None\n    url: Optional[str] = None\n    extension: Optional[str] = None\n    hash: Optional[str] = None\n    showInLibrary: Optional[bool] = None\n    path: Optional[str] = None\n    playbackUrl: Optional[str] = None",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "EntitySearchOptions",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class EntitySearchOptions:\n    artist: Optional[SearchableArtists] | bool = None\n    album: Optional[SearchableAlbum] | bool = None\n    artist: Optional[SearchableArtists] | bool = None\n    playlist: Optional[SearchablePlaylist] | bool = None\n    genre: Optional[SearchableGenre] | bool = None\n    inclusive: Optional[bool] = None\n    invert: Optional[bool] = None\n@dataclass\nclass SongQueue:",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongQueue",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SongQueue:\n    data: Dict[str, Song]\n    order: list[Dict[str, str]]\n    index: int\n@dataclass\nclass SongSortOptions:\n    type: Literal[\n        \"_id\",\n        \"title\",\n        \"type\",",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongSortOptions",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SongSortOptions:\n    type: Literal[\n        \"_id\",\n        \"title\",\n        \"type\",\n        \"url\",\n        \"extension\",\n        \"hash\",\n        \"showInLibrary\",\n        \"path\",",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongSearchOptions",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SongSearchOptions:\n    song: Optional[SearchableSong] = None\n    album: Optional[SearchableAlbum] = None\n    artist: Optional[SearchableArtists] = None\n    playlist: Optional[SearchablePlaylist] = None\n    genre: Optional[SearchableGenre] = None\n    sortBy: Optional[SongSortOptions] = None\n    inclusive: bool = False\n    invert: bool = False\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "ForwardRequest",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class ForwardRequest:\n    forwardTo: Literal[\"youtube\", \"spotify\"] | str\n    transformedData: any\n@dataclass\nclass PlaylistReturnType:\n    playlists: list[Playlist]\n@dataclass\nclass SongReturnType:\n    songs: list[Song]\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "PlaylistReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class PlaylistReturnType:\n    playlists: list[Playlist]\n@dataclass\nclass SongReturnType:\n    songs: list[Song]\n@dataclass\nclass SearchReturnType:\n    songs: list[Song]\n    playlists: list[Playlist]\n    artists: list[Artists]",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SongReturnType:\n    songs: list[Song]\n@dataclass\nclass SearchReturnType:\n    songs: list[Song]\n    playlists: list[Playlist]\n    artists: list[Artists]\n    albums: list[Album]\n@dataclass\nclass PlaybackDetailsReturnType:",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SearchReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SearchReturnType:\n    songs: list[Song]\n    playlists: list[Playlist]\n    artists: list[Artists]\n    albums: list[Album]\n@dataclass\nclass PlaybackDetailsReturnType:\n    duration: int\n    url: str\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "PlaybackDetailsReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class PlaybackDetailsReturnType:\n    duration: int\n    url: str\n@dataclass\nclass CustomDataReturnType:\n    mimeType: Optional[str] = None\n    data: Optional[bytes] = None\n    redirectUrl: Optional[str] = None\n@dataclass\nclass SongReturnType:",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "CustomDataReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class CustomDataReturnType:\n    mimeType: Optional[str] = None\n    data: Optional[bytes] = None\n    redirectUrl: Optional[str] = None\n@dataclass\nclass SongReturnType:\n    song: Song\n@dataclass\nclass PlaylistAndSongsReturnType:\n    playlist: Playlist",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SongReturnType:\n    song: Song\n@dataclass\nclass PlaylistAndSongsReturnType:\n    playlist: Playlist\n    songs: list[Song]\n@dataclass\nclass RecommendationsReturnType:\n    songs: list[Song]\n@dataclass",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "PlaylistAndSongsReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class PlaylistAndSongsReturnType:\n    playlist: Playlist\n    songs: list[Song]\n@dataclass\nclass RecommendationsReturnType:\n    songs: list[Song]\n@dataclass\nclass SongsWithPageTokenReturnType:\n    songs: list[Song]\n    nextPageToken: any",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "RecommendationsReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class RecommendationsReturnType:\n    songs: list[Song]\n@dataclass\nclass SongsWithPageTokenReturnType:\n    songs: list[Song]\n    nextPageToken: any\n@dataclass\nclass ContextMenuItem:\n    type: Literal[\n        \"SONGS\",",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "SongsWithPageTokenReturnType",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class SongsWithPageTokenReturnType:\n    songs: list[Song]\n    nextPageToken: any\n@dataclass\nclass ContextMenuItem:\n    type: Literal[\n        \"SONGS\",\n        \"GENERAL_SONGS\",\n        \"PLAYLIST\",\n        \"GENERAL_PLAYLIST\",",
+        "detail": "python-src.moosyncLib.data",
+        "documentation": {}
+    },
+    {
+        "label": "ContextMenuItem",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.data",
+        "description": "python-src.moosyncLib.data",
+        "peekOfCode": "class ContextMenuItem:\n    type: Literal[\n        \"SONGS\",\n        \"GENERAL_SONGS\",\n        \"PLAYLIST\",\n        \"GENERAL_PLAYLIST\",\n        \"PLAYLIST_CONTENT\",\n        \"QUEUE_ITEM\",\n        \"ARTIST\",\n        \"ALBUM\",",
+        "detail": "python-src.moosyncLib.data",
         "documentation": {}
     },
     {
@@ -106,7 +818,7 @@
         "kind": 6,
         "importPath": "python-src.moosyncLib.lib",
         "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "class ExtensionEventHandler():\n    def __init__(self) -> None:\n        self.callbacks = {}\n    def add_listener(self, event_name, callback):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append(callback)\n    async def emit_event(self, event_name, args):\n        if event_name in self.callbacks:\n            for callback in self.callbacks[event_name]:",
+        "peekOfCode": "class ExtensionEventHandler:\n    def __init__(self) -> None:\n        self.callbacks = {}\n    async def add_listener(self, event_name, callback, callback_hints):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append({\n            \"handler\": callback,\n            \"hints\": callback_hints\n        })",
         "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
@@ -115,34 +827,16 @@
         "kind": 2,
         "importPath": "python-src.moosyncLib.lib",
         "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "def sock_recvmsg(loop, sock, bufsize, ancbufsize=0):\n    self = loop\n    if sock.gettimeout() != 0: raise ValueError('the socket must be non-blocking')\n    fut = asyncio.futures.Future(loop=self)\n    self._sock_recvmsg(fut, False, sock, bufsize, ancbufsize)\n    return fut\nasyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg = _sock_recvmsg\nasyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nclass ExtensionEventHandler():\n    def __init__(self) -> None:",
+        "peekOfCode": "def sock_recvmsg(loop, sock, bufsize, ancbufsize=0):\n    self = loop\n    if sock.gettimeout() != 0:\n        raise ValueError(\"the socket must be non-blocking\")\n    fut = asyncio.futures.Future(loop=self)\n    self._sock_recvmsg(fut, False, sock, bufsize, ancbufsize)\n    return fut\nasyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg = _sock_recvmsg\nasyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nloop = asyncio.get_event_loop()",
         "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
     {
-        "label": "start",
+        "label": "generate_event_reply",
         "kind": 2,
         "importPath": "python-src.moosyncLib.lib",
         "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "def start():\n    loop.create_task(read_pipe())        \n    loop.run_forever()",
-        "detail": "python-src.moosyncLib.lib",
-        "documentation": {}
-    },
-    {
-        "label": "__dirname",
-        "kind": 5,
-        "importPath": "python-src.moosyncLib.lib",
-        "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "__dirname = sys.argv[1]\npipePath = sys.argv[2]\nprint(pipePath, flush=True)\n# https://stackoverflow.com/questions/38235997/how-to-implement-recvmsg-with-asyncio\ndef _sock_recvmsg(loop, fut, registered, sock, bufsize, ancbufsize):\n    self = loop\n    fd = sock.fileno()\n    if registered: self.remove_reader(fd)\n    if fut.cancelled(): return\n    try: ",
-        "detail": "python-src.moosyncLib.lib",
-        "documentation": {}
-    },
-    {
-        "label": "pipePath",
-        "kind": 5,
-        "importPath": "python-src.moosyncLib.lib",
-        "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "pipePath = sys.argv[2]\nprint(pipePath, flush=True)\n# https://stackoverflow.com/questions/38235997/how-to-implement-recvmsg-with-asyncio\ndef _sock_recvmsg(loop, fut, registered, sock, bufsize, ancbufsize):\n    self = loop\n    fd = sock.fileno()\n    if registered: self.remove_reader(fd)\n    if fut.cancelled(): return\n    try: \n        data = sock.recvmsg(bufsize, ancbufsize)",
+        "peekOfCode": "def generate_event_reply(request, data):\n    return {\n        \"type\": \"REPLY\",\n        \"data\": {\"id\": request[\"id\"], \"event\": request[\"event\"], \"args\": data},\n    }\nclass ExtensionEventHandler:\n    def __init__(self) -> None:\n        self.callbacks = {}\n    async def add_listener(self, event_name, callback, callback_hints):\n        if event_name not in self.callbacks:",
         "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
@@ -151,7 +845,7 @@
         "kind": 5,
         "importPath": "python-src.moosyncLib.lib",
         "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "asyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg = _sock_recvmsg\nasyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nclass ExtensionEventHandler():\n    def __init__(self) -> None:\n        self.callbacks = {}\n    def add_listener(self, event_name, callback):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append(callback)\n    async def emit_event(self, event_name, args):",
+        "peekOfCode": "asyncio.unix_events._UnixSelectorEventLoop._sock_recvmsg = _sock_recvmsg\nasyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nloop = asyncio.get_event_loop()\ndef generate_event_reply(request, data):\n    return {\n        \"type\": \"REPLY\",\n        \"data\": {\"id\": request[\"id\"], \"event\": request[\"event\"], \"args\": data},\n    }\nclass ExtensionEventHandler:\n    def __init__(self) -> None:",
         "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
@@ -160,25 +854,7 @@
         "kind": 5,
         "importPath": "python-src.moosyncLib.lib",
         "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "asyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nclass ExtensionEventHandler():\n    def __init__(self) -> None:\n        self.callbacks = {}\n    def add_listener(self, event_name, callback):\n        if event_name not in self.callbacks:\n            self.callbacks[event_name] = []\n        self.callbacks[event_name].append(callback)\n    async def emit_event(self, event_name, args):\n        if event_name in self.callbacks:",
-        "detail": "python-src.moosyncLib.lib",
-        "documentation": {}
-    },
-    {
-        "label": "event_handler",
-        "kind": 5,
-        "importPath": "python-src.moosyncLib.lib",
-        "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "event_handler = ExtensionEventHandler()\nclient = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)\nclient.connect(pipePath)\nclient.setblocking(0)\nloop = asyncio.get_event_loop()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        if not (data_tmp[0].endswith(b\"\\x0c\")):",
-        "detail": "python-src.moosyncLib.lib",
-        "documentation": {}
-    },
-    {
-        "label": "client",
-        "kind": 5,
-        "importPath": "python-src.moosyncLib.lib",
-        "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)\nclient.connect(pipePath)\nclient.setblocking(0)\nloop = asyncio.get_event_loop()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        if not (data_tmp[0].endswith(b\"\\x0c\")):\n            half_read_data += data_tmp[0]",
+        "peekOfCode": "asyncio.unix_events._UnixSelectorEventLoop.sock_recvmsg = sock_recvmsg\nloop = asyncio.get_event_loop()\ndef generate_event_reply(request, data):\n    return {\n        \"type\": \"REPLY\",\n        \"data\": {\"id\": request[\"id\"], \"event\": request[\"event\"], \"args\": data},\n    }\nclass ExtensionEventHandler:\n    def __init__(self) -> None:\n        self.callbacks = {}",
         "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
@@ -187,25 +863,61 @@
         "kind": 5,
         "importPath": "python-src.moosyncLib.lib",
         "description": "python-src.moosyncLib.lib",
-        "peekOfCode": "loop = asyncio.get_event_loop()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        if not (data_tmp[0].endswith(b\"\\x0c\")):\n            half_read_data += data_tmp[0]\n            continue\n        elif len(half_read_data) != 0:\n            half_read_data += data_tmp[0]",
+        "peekOfCode": "loop = asyncio.get_event_loop()\ndef generate_event_reply(request, data):\n    return {\n        \"type\": \"REPLY\",\n        \"data\": {\"id\": request[\"id\"], \"event\": request[\"event\"], \"args\": data},\n    }\nclass ExtensionEventHandler:\n    def __init__(self) -> None:\n        self.callbacks = {}\n    async def add_listener(self, event_name, callback, callback_hints):",
         "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
     {
-        "label": "on_volume_changed",
-        "kind": 2,
-        "importPath": "python-src.main",
-        "description": "python-src.main",
-        "peekOfCode": "def on_volume_changed(new_volume):\n    print('Volume changed to', new_volume, flush=True)\ndef on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
-        "detail": "python-src.main",
+        "label": "event_handler",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.lib",
+        "description": "python-src.moosyncLib.lib",
+        "peekOfCode": "event_handler = ExtensionEventHandler()\nasync def read_pipe():\n    half_read_data = b\"\"\n    while True:\n        data_tmp = await loop.sock_recvmsg(client, 1024)\n        split = data_tmp[0].split(b\"\\x0c\")\n        for i in range(len(split) - 1):\n            split[i] = split[i] + b\"\\x0c\"\n        for s in split:\n            if len(s) == 0:",
+        "detail": "python-src.moosyncLib.lib",
         "documentation": {}
     },
     {
-        "label": "on_song_changed",
+        "label": "EnhancedJSONEncoder",
+        "kind": 6,
+        "importPath": "python-src.moosyncLib.utils",
+        "description": "python-src.moosyncLib.utils",
+        "peekOfCode": "class EnhancedJSONEncoder(json.JSONEncoder):\n    def default(self, o):\n        if is_dataclass(o):\n            return asdict(o)\n        return super().default(o)",
+        "detail": "python-src.moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_event_request",
+        "kind": 2,
+        "importPath": "python-src.moosyncLib.utils",
+        "description": "python-src.moosyncLib.utils",
+        "peekOfCode": "def generate_event_request(event_name, args):\n    return {\n        \"type\": \"REQUEST\",\n        \"data\": {\"id\": str(uuid.uuid4()), \"event\": event_name, \"args\": args},\n    }\nclass EnhancedJSONEncoder(json.JSONEncoder):\n    def default(self, o):\n        if is_dataclass(o):\n            return asdict(o)\n        return super().default(o)",
+        "detail": "python-src.moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "pipePath",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.utils",
+        "description": "python-src.moosyncLib.utils",
+        "peekOfCode": "pipePath = sys.argv[2]\nclient = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)\nclient.connect(pipePath)\nclient.setblocking(0)\ndef generate_event_request(event_name, args):\n    return {\n        \"type\": \"REQUEST\",\n        \"data\": {\"id\": str(uuid.uuid4()), \"event\": event_name, \"args\": args},\n    }\nclass EnhancedJSONEncoder(json.JSONEncoder):",
+        "detail": "python-src.moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "python-src.moosyncLib.utils",
+        "description": "python-src.moosyncLib.utils",
+        "peekOfCode": "client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)\nclient.connect(pipePath)\nclient.setblocking(0)\ndef generate_event_request(event_name, args):\n    return {\n        \"type\": \"REQUEST\",\n        \"data\": {\"id\": str(uuid.uuid4()), \"event\": event_name, \"args\": args},\n    }\nclass EnhancedJSONEncoder(json.JSONEncoder):\n    def default(self, o):",
+        "detail": "python-src.moosyncLib.utils",
+        "documentation": {}
+    },
+    {
+        "label": "video_id",
         "kind": 2,
         "importPath": "python-src.main",
         "description": "python-src.main",
-        "peekOfCode": "def on_song_changed(song):\n    print('Song changed to', song, flush=True)\nif __name__ == '__main__':\n    event_handler.add_listener(\"volumeChanged\", on_volume_changed)\n    event_handler.add_listener(\"songChanged\", on_song_changed)\n    start()",
+        "peekOfCode": "def video_id(value):\n    query = urlparse(value)\n    if query.hostname == 'youtu.be':\n        return query.path[1:]\n    if query.hostname in ('www.youtube.com', 'youtube.com'):\n        if query.path == '/watch':\n            p = parse_qs(query.query)\n            return p['v'][0]\n        if query.path[:7] == '/embed/':\n            return query.path.split('/')[2]",
         "detail": "python-src.main",
         "documentation": {}
     }

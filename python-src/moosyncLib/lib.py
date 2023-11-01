@@ -253,6 +253,8 @@ async def read_pipe():
             data = parsed["data"]
             if isinstance(data, str):
                 data = json.loads(data)
+                
+            print("Got data", flush=True)
 
             if parsed["type"] == "REPLY":
                 loop.create_task(api._resolve_future(data))

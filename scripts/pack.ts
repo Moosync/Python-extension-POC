@@ -28,18 +28,18 @@ async function getAllFiles(dir: string) {
 }
 
 async function generateSetupPy() {
-    const dirent = (await getAllFiles('./python-src')).map(val => val.replace('python-src/', '').replace('.py', ''))
-    await writeFile(path.join('python-src', 'setup.py'), 
-    `from distutils.core import setup
+//     const dirent = (await getAllFiles('./python-src')).map(val => val.replace('python-src/', '').replace('.py', ''))
+//     await writeFile(path.join('python-src', 'setup.py'), 
+//     `from distutils.core import setup
 
-setup(
-    name='moosync-ext',
-    version='1.0',
-    packages=["moosyncLib"],
-    py_modules=["${dirent.join('", "')}"],
-    scripts=["main.py"],
-)
-    `)
+// setup(
+//     name='moosync-ext',
+//     version='1.0',
+//     packages=["moosyncLib"],
+//     py_modules=["${dirent.join('", "')}"],
+//     scripts=["main.py"],
+// )
+//     `)
 }
 
 async function generatePEX() {
