@@ -1,5 +1,6 @@
 import json
 import asyncio
+import sys
 from typing import Callable, Literal
 import inspect
 
@@ -70,10 +71,9 @@ class ExtensionEventHandler:
     async def add_listener(self, event_name, callback, callback_hints):
         if event_name not in self.callbacks:
             self.callbacks[event_name] = []
-        self.callbacks[event_name].append({
-            "handler": callback,
-            "hints": callback_hints
-        })
+        self.callbacks[event_name].append(
+            {"handler": callback, "hints": callback_hints}
+        )
 
         data = generate_event_request("registerListener", [event_name])
         await loop.sock_sendall(
@@ -132,16 +132,12 @@ class ExtensionEventHandler:
     ):
         return await self.add_listener("requestedArtistSongs", callback, [Artists, any])
 
-    async def requestedLyrics(
-        self, callback: Callable[[Song], str | ForwardRequest]
-    ):
+    async def requestedLyrics(self, callback: Callable[[Song], str | ForwardRequest]):
         return await self.add_listener("requestedLyrics", callback, [Song])
 
     async def requestedPlaylistFromURL(
         self,
-        callback: Callable[
-            [str, bool], PlaylistAndSongsReturnType | ForwardRequest
-        ],
+        callback: Callable[[str, bool], PlaylistAndSongsReturnType | ForwardRequest],
     ):
         return await self.add_listener("requestedPlaylistFromURL", callback, [])
 
@@ -153,9 +149,7 @@ class ExtensionEventHandler:
     ):
         return await self.add_listener("requestedPlaylistSongs", callback, [])
 
-    async def requestedPlaylists(
-        self, callback: Callable[[bool], PlaylistReturnType]
-    ):
+    async def requestedPlaylists(self, callback: Callable[[bool], PlaylistReturnType]):
         return await self.add_listener("requestedPlaylists", callback, [])
 
     async def requestedRecommendations(
@@ -173,9 +167,7 @@ class ExtensionEventHandler:
     ):
         return await self.add_listener("requestedSongFromURL", callback, [])
 
-    async def customRequest(
-        self, callback: Callable[[str], CustomDataReturnType]
-    ):
+    async def customRequest(self, callback: Callable[[str], CustomDataReturnType]):
         return await self.add_listener("customRequest", callback, [])
 
     async def playbackDetailsRequested(
@@ -183,13 +175,12 @@ class ExtensionEventHandler:
         callback: Callable[[Song], PlaybackDetailsReturnType | ForwardRequest],
     ):
         return await self.add_listener("playbackDetailsRequested", callback, [Song])
-    
+
     def convert_args_to_hints(self, args, hints):
         conv = []
         if len(args) == len(hints):
             for i in range(len(hints)):
                 if inspect.isclass(hints[i]):
-                    
                     if isinstance(args[i], list):
                         instance = []
                         for a in args[i]:
@@ -199,7 +190,7 @@ class ExtensionEventHandler:
                     conv.append(instance)
                 else:
                     conv.append(args[i])
-                    
+
             return conv
         return args
 
@@ -210,7 +201,7 @@ class ExtensionEventHandler:
                 callback = callback_map["handler"]
                 hints = callback_map["hints"]
                 args = self.convert_args_to_hints(args=request["args"], hints=hints)
-                
+
                 callback_res = callback(*args)
                 if inspect.iscoroutine(callback_res):
                     callback_res = await callback_res
@@ -253,7 +244,7 @@ async def read_pipe():
             data = parsed["data"]
             if isinstance(data, str):
                 data = json.loads(data)
-                
+
             print("Got data", flush=True)
 
             if parsed["type"] == "REPLY":
@@ -264,6 +255,13 @@ async def read_pipe():
 
             elif parsed["type"] == "CALLBACK":
                 loop.create_task(api.trigger_callback(data["id"], data["args"]))
+
+
+def connect_client():
+    pipePath = sys.argv[2]
+
+    client.connect(pipePath)
+    client.setblocking(0)
 
 
 async def start():

@@ -251,4 +251,28 @@ class ContextMenuItem:
     label: str
     disabled: Optional[bool] = False
     children: Optional[List["ContextMenuItem"]] = None
-    handler: Optional[Callable[[List[Song] | Playlist | Song | Artists | Album | None], None]] = None
+    handler: Optional[
+        Callable[[List[Song] | Playlist | Song | Artists | Album | None], None]
+    ] = None
+
+
+@dataclass
+class ExtensionPreferenceGroup:
+    key: str
+    type: Literal[
+        "CheckboxGroup",
+        "EditText",
+        "FilePicker",
+        "DirectoryGroup",
+        "ButtonGroup",
+        "ProgressBar",
+        "TextField",
+        "InfoField",
+    ]
+    title: Optional[str] = None
+    description: Optional[str] = None
+    index: Optional[int] = None
+
+    default: Optional[any] = None
+    items: Optional[any] = None
+    inputType: Optional[Literal["text", "number", "password", "url"]] = None

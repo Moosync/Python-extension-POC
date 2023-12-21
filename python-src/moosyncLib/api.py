@@ -2,8 +2,16 @@ import asyncio
 import inspect
 import json
 from moosyncLib.utils import generate_event_request, EnhancedJSONEncoder, client
-from moosyncLib.data import Album, Artists, ContextMenuItem, EntitySearchOptions, Genre, Playlist, Song
-from moosyncLib.data import SongSearchOptions
+from moosyncLib.data import (
+    Album,
+    Artists,
+    ContextMenuItem,
+    EntitySearchOptions,
+    Genre,
+    Playlist,
+    Song,
+)
+from moosyncLib.data import SongSearchOptions, ExtensionPreferenceGroup
 from typing import Callable, List
 import uuid
 
@@ -11,6 +19,7 @@ future_map = {}
 loop = asyncio.get_event_loop()
 
 callback_map = {}
+
 
 class ExtensionAPI:
     async def send(self, method, args):
@@ -23,27 +32,27 @@ class ExtensionAPI:
         )
         res = await future
         return res
-    
+
     class PlayerControls:
         def __init__(self, outer):
             self.outer = outer
-            
+
         async def play(self):
             return await self.outer.send("player.play", [])
-            
+
         async def pause(self):
             return await self.outer.send("player.pause", [])
-            
+
         async def stop(self):
             return await self.outer.send("player.stop", [])
-            
+
         async def next_song(self):
             return await self.outer.send("player.nextSong", [])
-            
+
         async def prev_song(self):
             return await self.outer.send("player.prevSong", [])
 
-    @property       
+    @property
     def player(self):
         return self.PlayerControls(self)
 
@@ -68,11 +77,17 @@ class ExtensionAPI:
     async def get_queue(self) -> list[Song]:
         return await self.send("getQueue", [])
 
-    async def get_preferences(self, key: str, default_value: any) -> any:
+    async def get_preferences(self, key: str, default_value: any = None) -> any:
         return await self.send("getPreferences", [key, default_value])
 
     async def set_preferences(self, key: str, value: any) -> None:
         return await self.send("setPreferences", [key, value])
+
+    async def add_user_preferences(self, value: ExtensionPreferenceGroup) -> None:
+        return await self.send("addUserPreference", [value])
+
+    async def remove_user_preferences(self, value: ExtensionPreferenceGroup) -> None:
+        return await self.send("removeUserPreference", [value])
 
     async def get_secure(self, key: str, default_value: str) -> str:
         return await self.send("getSecure", [key, default_value])
@@ -82,7 +97,7 @@ class ExtensionAPI:
 
     async def add_songs(self, songs: list[Song]) -> None:
         return await self.send("addSongs", [*songs])
-    
+
     async def update_song(self, song: Song) -> None:
         return await self.send("updateSong", [song])
 
@@ -137,18 +152,27 @@ class ExtensionAPI:
 
     async def get_installed_extensions(self) -> list[str]:
         return await self.send("getInstalledExtensions", [])
-    
-    async def register_account(self, name: str, bg_color: str, icon: str, sign_in_callback: Callable[[], None], sign_out_callback: Callable[[], None]) -> list[str]:
+
+    async def register_account(
+        self,
+        name: str,
+        bg_color: str,
+        icon: str,
+        sign_in_callback: Callable[[], None],
+        sign_out_callback: Callable[[], None],
+    ) -> list[str]:
         sign_in_callback_id = str(uuid.uuid4())
-        sign_out_callback_id =  str(uuid.uuid4())
-        
+        sign_out_callback_id = str(uuid.uuid4())
+
         callback_map[sign_in_callback_id] = sign_in_callback
         callback_map[sign_out_callback_id] = sign_out_callback
-        
-        return await self.send("registerAccount", [name, bg_color, icon, sign_in_callback_id, sign_out_callback_id])
+
+        return await self.send(
+            "registerAccount",
+            [name, bg_color, icon, sign_in_callback_id, sign_out_callback_id],
+        )
 
     async def _resolve_future(self, request):
-        print("Resolving", request)
         id = request["id"]
         if id in future_map:
             future = future_map[id]
@@ -159,12 +183,13 @@ class ExtensionAPI:
             if args is not None and len(request["args"]) > 0:
                 result = request["args"][0]
             future.set_result(result)
-            
+
     async def trigger_callback(self, id: str, args):
         if id in callback_map:
             callback = callback_map[id]
             callback_res = callback(*args)
             if inspect.iscoroutine(callback_res):
                 callback_res = await callback_res
+
 
 api = ExtensionAPI()

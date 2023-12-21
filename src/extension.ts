@@ -16,6 +16,7 @@ export class MyExtension implements MoosyncExtensionTemplate {
   private socket?: Socket
   private socketWriteQueue: [MessageType, Message][] = []
   private pythonReceiver = new EventEmitter()
+  private child: ReturnType<typeof spawn> | undefined
 
   private async createPipes() {
     try {
@@ -54,7 +55,7 @@ export class MyExtension implements MoosyncExtensionTemplate {
       })
     }
   }
-  
+
   private async handlePythonRequests(method: keyof extensionAPI, args: unknown[]) {
     const validMethods: (keyof extensionAPI)[] = [
       'addPlaylist',
@@ -85,7 +86,9 @@ export class MyExtension implements MoosyncExtensionTemplate {
       'setContextMenuItem',
       'setPreferences',
       'setSecure',
-      'showToast'
+      'showToast',
+      'addUserPreference',
+      'removeUserPreference'
     ]
 
     if (method === 'setContextMenuItem') {
@@ -106,21 +109,21 @@ export class MyExtension implements MoosyncExtensionTemplate {
       const signInId = args[3] as string
       const signOutId = args[4] as string
 
-      ;(args as Parameters<extensionAPI['registerAccount']>)[3] = (...args: unknown[]) => {
-        this.send('CALLBACK', {
-          id: signInId,
-          event: 'registerAccount',
-          args
-        })
-      }
+        ; (args as Parameters<extensionAPI['registerAccount']>)[3] = (...args: unknown[]) => {
+          this.send('CALLBACK', {
+            id: signInId,
+            event: 'registerAccount',
+            args
+          })
+        }
 
-      ;(args as Parameters<extensionAPI['registerAccount']>)[4] = (...args: unknown[]) => {
-        this.send('CALLBACK', {
-          id: signOutId,
-          event: 'registerAccount',
-          args
-        })
-      }
+        ; (args as Parameters<extensionAPI['registerAccount']>)[4] = (...args: unknown[]) => {
+          this.send('CALLBACK', {
+            id: signOutId,
+            event: 'registerAccount',
+            args
+          })
+        }
     }
 
     if (method.startsWith('player')) {
@@ -130,18 +133,18 @@ export class MyExtension implements MoosyncExtensionTemplate {
         'nextSong',
         'pause',
         'play',
-        'prevSong',,
+        'prevSong', ,
         'stop'
       ]
 
       if (validInnerMethods.includes(innerMethod)) {
         const result = await ((api.player[innerMethod] as Function)(...args))
         return result
-      }      
+      }
     }
 
     if (validMethods.includes(method)) {
-      console.log(access)
+      console.log(method)
       const result = await (api[method] as Function)(...args)
       return result
     }
@@ -205,7 +208,12 @@ export class MyExtension implements MoosyncExtensionTemplate {
     this.writeToPython(type, message)
   }
 
+  async onStopped(): Promise<void> {
+    this.child?.kill()
+  }
+
   async onStarted() {
+    console.log('spawning child')
     const pythonBin = path.join(__dirname, 'python-bin.pex')
     await chmod(pythonBin, 0o755)
 
@@ -213,19 +221,29 @@ export class MyExtension implements MoosyncExtensionTemplate {
 
     this.send('EVENT', { event: 'onStarted', args: [], id: v4() })
 
-    const child = spawn(pythonBin, [__dirname, pipePath], {
+    this.child = spawn(pythonBin, [__dirname, pipePath], {
       stdio: 'pipe'
     })
 
-    child.on('error', function (err) {
+    this.child?.on('disconnect', () => {
+      console.error("Child disconnected")
+    })
+
+    this.child?.on('exit', (err) => {
+      console.error('child exited', err)
+    })
+
+    this.child?.on('error', function (err) {
       console.error('Failed to start child.', err)
     })
-    child.on('close', function (code) {
+    this.child?.on('close', function (code) {
       console.error('Child process exited with code ' + code)
     })
 
-    child.stdout.on('data', (buf: Buffer) => console.log('from python:', buf.toString()))
-    child.stderr.on('data', (buf: Buffer) => console.error('from python:', buf.toString()))
+    this.child?.stdout.on('data', (buf: Buffer) => console.log('from python:', buf.toString()))
+    this.child?.stderr.on('data', (buf: Buffer) => console.error('from python:', buf.toString()))
+
+    console.log('spawned child')
   }
 
   private registerEvent(eventName: ExtraExtensionEventTypes) {
