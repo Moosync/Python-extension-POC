@@ -31,7 +31,6 @@ def video_id(value):
 
 
 async def on_started():
-    print("Started ytdlp")
     await api.set_context_menu_item(
         [
             ContextMenuItem(
@@ -68,6 +67,10 @@ async def context_menu_handler(songs: typing.Optional[list[dict]]):
             store_path = default_store_path
         for song in songs:
             if song["type"] == "YOUTUBE" and song["playbackUrl"] is not None:
+                if song["path"] is not None:
+                    await api.show_toast(f"{song['title']} already downloaded")
+                    continue
+
                 if song["playbackUrl"].startswith("https://"):
                     urls.append(
                         f"https://www.youtube.com/watch?v={video_id(song['playbackUrl'])}"
@@ -105,7 +108,6 @@ async def context_menu_handler(songs: typing.Optional[list[dict]]):
 
 async def main():
     connect_client()
-    print("Starting extension")
     await event_handler.add_listener("onStarted", on_started, [])
     await start()
 
