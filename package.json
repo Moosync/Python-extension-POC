@@ -1,12 +1,12 @@
 {
   "name": "moosync.yt.download",
   "version": "1.0.0",
-  "description": "A sample extension",
+  "description": "Downloads audio from Youtube. Just a proof of concept",
   "main": "src/index.ts",
   "icon": "assets/icon.svg",
   "extensionEntry": "dist/index.js",
   "moosyncExtension": true,
-  "displayName": "MyExtension",
+  "displayName": "Youtube Downloader (POC)",
   "scripts": {
     "watch:build": "npm run setup && webpack --watch",
     "webpack:build": "npm run setup && npm run pex && webpack --config webpack.config.js && npm run clean",
